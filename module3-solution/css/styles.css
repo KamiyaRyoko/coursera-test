@@ -1,0 +1,53 @@
+/*** Desktop ***/
+#header-nav {
+  background-color: #FFA042;
+  border-radius: 0;
+}
+.navbar-brand {
+  padding-top: 25px;
+}
+
+.navbar-brand h1 { 
+  font-family: fantasy, serif;
+  color: #984B4B;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin: 0 auto 0;
+  line-height: 0.5;
+}
+
+@media (max-width: 768px) {
+	#collapsable-nav {
+		background-color: #FFE153;
+	}
+}
+
+#nav-list a:hover {
+  background: #E7E7E7;
+}
+
+#nav-list a{
+	margin-top: 0;
+	color: #844200;
+	border-bottom: 1px solid grey;
+	text-align: center;
+	font-weight: bold;
+}
+
+#menu-item {
+	margin-top: 3em;
+	width: 90%;
+	background-color: #FFED97;
+}
+
+.menu-item-title {
+	margin-top: 1.5em;
+	text-align: center;
+}
+
+.menu-item-details{
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
