@@ -80,23 +80,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // *** start ***
 // On first load, show home view
-// showLoading("#main-content");
-// $ajaxUtils.sendGetRequest(
-//   allCategoriesUrl,
-//   buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
-//   true); // Explicitly setting the flag to get JSON from server processed into an object literal
-// });
-// *** finish **
-
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
-  homeHtmlUrl,
-  function (responseText) {
-    document.querySelector("#main-content")
-      .innerHTML = responseText;
-  },
-  false);
+  allCategoriesUrl,
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
+// *** finish **
 
 
 // Builds HTML for the home page based on categories array
@@ -126,10 +116,8 @@ function buildAndShowHomeHTML (categories) {
       // it into the home html snippet.
       //
       // var homeHtmlToInsertIntoMainPage = ....
-      var name = chosenCategoryShortName.name;
-      var short_name = chosenCategoryShortName.short_name;
-      homeHtmlUrl = insertProperty(homeHtmlUrl, "name", name);
-      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtmlUrl, "short_name", short_name);
+      var short_name = "'" + chosenCategoryShortName.short_name + "'";
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", short_name);
 
       // var insertProperty = function (string, propName, propValue) {
       //   var propToReplace = "{{" + propName + "}}";
@@ -143,8 +131,7 @@ function buildAndShowHomeHTML (categories) {
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
-      var html = "<div class='text-center'>";
-      insertHtml ("#main-content", html);
+      insertHtml ("#main-content", homeHtmlToInsertIntoMainPage);
 
       // var insertHtml = function (selector, html) {
       //   var targetElem = document.querySelector(selector);
